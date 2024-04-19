@@ -15,6 +15,7 @@ test("filters correctly", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     },
     [
       {
@@ -55,6 +56,7 @@ test("filters based on semver", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     },
     [
       {
@@ -86,6 +88,7 @@ test("filters based on regex", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     },
     [
       {
@@ -127,6 +130,7 @@ test("filters based on regex release", () => {
       user: "user",
       organization: "",
       type: PackageType.Container,
+      versionPatternAll: true,
     },
     [
       {
@@ -168,6 +172,7 @@ test("respects keep", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     },
     [
       {
@@ -207,6 +212,7 @@ test("filters with multiple names", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     },
     [
       {
@@ -227,7 +233,10 @@ test("filters with multiple names", () => {
       },
     ],
   )
-  expect(result).toHaveLength(0)
+  expect(result).toHaveLength(1)
+  expect(result[0].name).toEqual("test")
+  expect(result[0].versions.map((it) => it.id)).toEqual(["b"])
+  expect(result[0].totalVersions).toEqual(2)
 })
 
 const containerTestResponse: Endpoints["GET /users/{username}/packages/{package_type}/{package_name}/versions"]["response"] =

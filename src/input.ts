@@ -59,6 +59,7 @@ export function getActionInput(): Input {
     dryRun: getBooleanInput("dry-run"),
     user: getInput("user"),
     organization: getInput("organization"),
+    versionPatternAll: getBooleanInput("version-pattern-all"),
   }
 }
 

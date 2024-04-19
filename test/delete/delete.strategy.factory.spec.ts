@@ -14,6 +14,7 @@ test("decide default delete strategy", () => {
     user: "",
     organization: "",
     type: PackageType.Npm,
+    versionPatternAll: false,
   }
 
   expect(decideDeleteStrategy(input)).toBeInstanceOf(UserDeleteStrategy)
@@ -29,6 +30,7 @@ test("decide rest user delete strategy", () => {
     dryRun: false,
     user: "user",
     organization: "",
+    versionPatternAll: false,
   }
 
   expect(decideDeleteStrategy(input)).toBeInstanceOf(UserDeleteStrategy)
@@ -44,6 +46,7 @@ test("decide rest organization delete strategy", () => {
     dryRun: false,
     user: "",
     organization: "org",
+    versionPatternAll: false,
   }
 
   expect(decideDeleteStrategy(input)).toBeInstanceOf(OrganizationDeleteStrategy)

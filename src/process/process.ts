@@ -28,7 +28,10 @@ export function findVersionsToDelete(input: Input, versions: PackageVersion[]): 
     })
   } else if (input.versionPattern) {
     return versions.filter((version) => {
-      return version.names.every((name) => input.versionPattern?.test(name));
+      return (input.versionPatternAll
+        ? version.names.every((name) => input.versionPattern?.test(name))
+        : version.names.some((name) => input.versionPattern?.test(name))
+      )
     })
   } else {
     return versions

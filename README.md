@@ -12,17 +12,18 @@ table below) on them and then deleting the matching versions.
 
 ### Inputs
 
-| Name              | Description                                                | Required               | Default       |
-| ----------------- | ---------------------------------------------------------- | ---------------------- | ------------- |
-| `user`            | User containing the package(s)                             |                        |               |
-| `organization`    | Organization containing the package(s)                     |                        |               |
-| `names`           | Names of the package(s)                                    | :heavy_check_mark:     |               |
-| `type`            | The type of package (e.g. npm)                             | :heavy_check_mark:     |               |
-| `semver-pattern`  | [Semver](https://semver.org) range of the versions         |                        |               |
-| `version-pattern` | Regex pattern of the versions                              |                        | `^.+$`        |
-| `keep`            | Number of versions to exclude from deletions               |                        | 2             |
-| `token`           | Token with the necessary scopes to delete package versions | Depends on the package | Set by GitHub |
-| `dry-run`         | If the action should only print what it would do           |                        | `false`       |
+| Name                  | Description                                                      | Required               | Default       |
+| ----------------------| -----------------------------------------------------------------| ---------------------- | ------------- |
+| `user`                | User containing the package(s)                                   |                        |               |
+| `organization`        | Organization containing the package(s)                           |                        |               |
+| `names`               | Names of the package(s)                                          | :heavy_check_mark:     |               |
+| `type`                | The type of package (e.g. npm)                                   | :heavy_check_mark:     |               |
+| `semver-pattern`      | [Semver](https://semver.org) range of the versions               |                        |               |
+| `version-pattern`     | Regex pattern of the versions                                    |                        | `^.+$`        |
+| `version-pattern-all` | Whether to require all versions to match version pattern or some |                        | false         |
+| `keep`                | Number of versions to exclude from deletions                     |                        | 2             |
+| `token`               | Token with the necessary scopes to delete package versions       | Depends on the package | Set by GitHub |
+| `dry-run`             | If the action should only print what it would do                 |                        | `false`       |
 
 > :warning: Certain options can not be combined with each other and will lead to errors. These are:
 >

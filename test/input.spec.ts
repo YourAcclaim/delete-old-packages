@@ -22,6 +22,7 @@ describe("getActionInput", () => {
       INPUT_TOKEN: "token",
       INPUT_USER: "user",
       "INPUT_VERSION-PATTERN": "\\d+\\.\\d+\\.\\d+-RC\\d+",
+      "INPUT_VERSION-PATTERN-ALL": "false",
       "INPUT_DRY-RUN": "true",
       INPUT_TYPE: "npm",
     }
@@ -36,6 +37,7 @@ describe("getActionInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(result).toEqual(expected)
@@ -49,6 +51,7 @@ describe("getActionInput", () => {
       INPUT_TOKEN: "token",
       INPUT_USER: "user",
       "INPUT_SEMVER-PATTERN": "^1.0.0",
+      "INPUT_VERSION-PATTERN-ALL": "false",
       "INPUT_DRY-RUN": "true",
       INPUT_TYPE: "npm",
     }
@@ -63,6 +66,7 @@ describe("getActionInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(result).toEqual(expected)
@@ -77,6 +81,7 @@ describe("getActionInput", () => {
       INPUT_USER: "user",
       INPUT_TYPE: "npm",
       "INPUT_DRY-RUN": "true",
+      "INPUT_VERSION-PATTERN-ALL": "false",
     }
 
     const result = getActionInput()
@@ -88,6 +93,7 @@ describe("getActionInput", () => {
       dryRun: true,
       user: "user",
       organization: "",
+      versionPatternAll: false,
     }
 
     expect(result).toEqual(expected)
@@ -169,6 +175,7 @@ describe("validateInput", () => {
       dryRun: true,
       user: "user",
       organization: "",
+      versionPatternAll: false,
     }
 
     expect(() => {
@@ -185,6 +192,7 @@ describe("validateInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(() => {
@@ -203,6 +211,7 @@ describe("validateInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(() => {
@@ -219,6 +228,7 @@ describe("validateInput", () => {
       dryRun: true,
       user: "user",
       organization: "org",
+      versionPatternAll: false,
     }
 
     expect(() => {
@@ -235,6 +245,7 @@ describe("validateInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(() => {
@@ -251,6 +262,7 @@ describe("validateInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(() => {
@@ -267,6 +279,7 @@ describe("validateInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(() => {
@@ -283,6 +296,7 @@ describe("validateInput", () => {
       user: "user",
       organization: "",
       type: PackageType.Npm,
+      versionPatternAll: false,
     }
 
     expect(() => {

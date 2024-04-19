@@ -14,6 +14,7 @@ test("decide user query strategy", () => {
     user: "user",
     organization: "",
     type: PackageType.Npm,
+    versionPatternAll: false,
   }
 
   expect(decideQueryStrategy(input)).toBeInstanceOf(UserQueryStrategy)
@@ -29,6 +30,7 @@ test("decide organization query strategy", () => {
     user: "",
     organization: "org",
     type: PackageType.Npm,
+    versionPatternAll: false,
   }
 
   expect(decideQueryStrategy(input)).toBeInstanceOf(OrganizationQueryStrategy)
@@ -44,6 +46,7 @@ test("decide default query strategy", () => {
     dryRun: false,
     user: "",
     organization: "",
+    versionPatternAll: false,
   }
 
   expect(decideQueryStrategy(input)).toBeInstanceOf(UserQueryStrategy)
@@ -59,6 +62,7 @@ test("decide rest user strategy", () => {
     dryRun: false,
     user: "user",
     organization: "",
+    versionPatternAll: false,
   }
 
   expect(decideQueryStrategy(input)).toBeInstanceOf(UserQueryStrategy)
