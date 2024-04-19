@@ -35,7 +35,6 @@ test("filters correctly", () => {
       },
     ],
   )
-
   expect(result).toHaveLength(2)
   expect(result[0].name).toEqual("test")
   expect(result[0].versions.map((it) => it.id)).toEqual(["a", "b"])
@@ -117,6 +116,47 @@ test("filters based on regex", () => {
   expect(result[1].totalVersions).toEqual(2)
 })
 
+test("filters based on regex release", () => {
+  const result = processPackages(
+    {
+      names: ["test", "test2"],
+      versionPattern: /[^.0-9]+/,
+      keep: 0,
+      token: "token",
+      dryRun: true,
+      user: "user",
+      organization: "",
+      type: PackageType.Container,
+    },
+    [
+      {
+        name: "test",
+        versions: [
+          { id: "a", names: ["1.39.0", "464697u"] },
+          { id: "b", names: ["3ad4556"] },
+          { id: "c", names: ["c7oo0fe", "1.39.0-main.5"] },
+        ],
+        totalVersions: 2,
+      },
+      {
+        name: "test2",
+        versions: [
+          { id: "d", names: ["b4addsg"] },
+          { id: "e", names: ["1.39.0-main.5"] },
+        ],
+        totalVersions: 2,
+      },
+    ],
+  )
+  expect(result).toHaveLength(2)
+  expect(result[0].name).toEqual("test")
+  expect(result[0].versions.map((it) => it.id)).toEqual(["b","c"])
+  expect(result[0].totalVersions).toEqual(2)
+  expect(result[1].name).toEqual("test2")
+  expect(result[1].versions.map((it) => it.id)).toEqual(["d", "e"])
+  expect(result[1].totalVersions).toEqual(2)
+})
+
 test("respects keep", () => {
   const result = processPackages(
     {
@@ -187,11 +227,7 @@ test("filters with multiple names", () => {
       },
     ],
   )
-
-  expect(result).toHaveLength(1)
-  expect(result[0].name).toEqual("test")
-  expect(result[0].versions.map((it) => it.id)).toEqual(["b"])
-  expect(result[0].totalVersions).toEqual(2)
+  expect(result).toHaveLength(0)
 })
 
 const containerTestResponse: Endpoints["GET /users/{username}/packages/{package_type}/{package_name}/versions"]["response"] =
