@@ -29,7 +29,7 @@ inputs:
       Defaults to true for all versions.
     required: false
     
-   version-pattern-all:
+  version-pattern-all:
     description: >-
       Whether to require all versions to match version pattern or some.
     required: false
