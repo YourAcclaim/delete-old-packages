@@ -19,8 +19,8 @@ export function processPackages(input: Input, packages: Package[]): Package[] {
 }
 
 export function findVersionsToDelete(input: Input, versions: PackageVersion[]): PackageVersion[] {
-  info(`versions: ${JSON.stringify(versions)} `)
-  info(`input versionPatternAll: ${input.versionPatternAll} `)
+  info(`versions: ${versions}`)
+  info(`input versionPatternAll: ${input.versionPatternAll}`)
   if (input.semverPattern) {
     return versions.filter((version) => {
       return version.names.some((name) => {
