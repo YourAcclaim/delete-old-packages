@@ -23,7 +23,7 @@ export async function executeAction(input: Input, queryStrategy: QueryStrategy, 
   const processedPackages = processPackages(input, packages)
 
   if (processedPackages.length <= 0) {
-    info("No versions to delete")
+    info("No versions to delete test")
 
     return
   }
